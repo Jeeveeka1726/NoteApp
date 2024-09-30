@@ -1,10 +1,11 @@
 import React from 'react'
-import Home from './Pages/Home/Home'
+import LandingPage from './Pages/LandingPage/LandingPage'
+
 
 export default function App() {
   return (
     <div>
-      <Home/>
+      <LandingPage/>
     </div>
   )
 }
