@@ -8,14 +8,13 @@ import Signup from './Pages/Signup/Signup';
 const routes=(
   <Router>
     <Routes>
+      <Route path='/' element={<LandingPage/>}/>
       <Route path='/dashboard' element={<Home/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/signup' element={<Signup/>}/>
     </Routes>
   </Router>
 )
-
-
 
 export default function App() {
   return (
