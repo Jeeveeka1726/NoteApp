@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
-import Navbar from './Navbar'; 
-import PasswordInput from './PasswordInput'; 
+import Navbar from '../../components/Navbar/Navbar';
+import PasswordInput from '../../components/Navbar/Input/PasswordInput';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -37,14 +37,14 @@ const SignUp = () => {
     <>
       <Navbar />
       <div className='flex items-center justify-center mt-28'>
-        <div className='w-96 border rounded bg-white px-7 py-10'>
+        <div className='w-96 border rounded bg-white px-7 py-10 shadow-lg'>
           <form onSubmit={handleSignUp}>
-            <h4 className='text-2xl mb-7'>Sign Up</h4>
+            <h4 className='text-2xl mb-7 text-center font-semibold'>Sign Up</h4>
 
             <input
               type='text'
               placeholder='Name'
-              className='input-box'
+              className='w-full p-3 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-primary'
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -52,7 +52,7 @@ const SignUp = () => {
             <input
               type='text'
               placeholder='Email'
-              className='input-box'
+              className='w-full p-3 mb-4 border rounded focus:outline-none focus:ring-2 focus:ring-primary'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -60,10 +60,11 @@ const SignUp = () => {
             <PasswordInput
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
             />
 
             {error && <p className='text-red-500 text-xs pb-1'>{error}</p>}
-            <button type='submit' className='btn-primary'>
+            <button type='submit' className='w-full py-3 mt-4 text-white bg-primary rounded hover:bg-primary-dark transition'>
               Create Account
             </button>
 

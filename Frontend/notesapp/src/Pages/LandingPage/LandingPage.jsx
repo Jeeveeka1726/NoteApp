@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
   return (
@@ -9,12 +10,12 @@ export default function LandingPage() {
       </header>
 
       <div className="flex space-x-4">
-        <button className="bg-white text-blue-500 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+        <Link to='/signup'><button className="bg-white text-blue-500 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
           Get Started
-        </button>
-        <button className="bg-transparent border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-500 transition">
+        </button></Link>
+        <Link to='/login'><button className="bg-transparent border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-500 transition">
           Login
-        </button>
+        </button></Link>
       </div>
 
       <footer className="absolute bottom-4">
