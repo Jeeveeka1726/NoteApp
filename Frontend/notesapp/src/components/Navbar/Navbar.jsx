@@ -1,31 +1,23 @@
-import React from 'react';
+import React from 'react'
+import ProfileInfo from '../Cards/ProfileInfo';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+
+  const onLogout = () =>{
+    navigate("/login")
+  }
+
   return (
-    <nav className="bg-gray-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-lg font-bold">
-          NoteApp
-        </div>
-        <div>
-          <ul className="flex space-x-4">
-            <li>
-              <a href="/" className="text-gray-300 hover:text-white">Home</a>
-            </li>
-            <li>
-              <a href="/notes" className="text-gray-300 hover:text-white">My Notes</a>
-            </li>
-            <li>
-              <a href="/about" className="text-gray-300 hover:text-white">About</a>
-            </li>
-            <li>
-              <a href="/contact" className="text-gray-300 hover:text-white">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
+    <div className='bg-white flex items-center justify-between px-6 py-2 drop-shadow'>
+      <h2 className='text-xl font-medium text-black py-2'>Notes</h2>
+
+      <ProfileInfo onLogout={onLogout}/>
+      
+    </div>
+  )
 }
 
 export default Navbar;
