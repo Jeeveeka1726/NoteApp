@@ -1,7 +1,6 @@
-export const validateEmail = (email)=> {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.text(email);
-
+export const validateEmail = (email) => {
+    const regex = /\S+@\S+\.\S+/;
+    return regex.test(email); 
 };
 
 export const getInitials = (name) =>{
