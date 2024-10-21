@@ -29,14 +29,12 @@ const Login = () => {
 
     console.log('Logged in with', { email, password });
     
-    //login api call
     try{
         const response = await axiosInstance.post("/login",{
           email: email,
           password: password,
         });
 
-        //handle successful login response
         if (response.data && response.data.accessToken){
           localStorage.setItem("token", response.data.accessToken);
           navigate('/dashboard');
