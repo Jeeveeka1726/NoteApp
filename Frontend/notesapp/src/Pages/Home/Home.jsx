@@ -3,7 +3,6 @@ import Navbar from '../../components/Navbar/Navbar'
 import NoteCard from '../../Cards/NoteCard'
 import {MdAdd} from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 const Home = () => {
 
 
