@@ -40,7 +40,7 @@ const SignUp = () => {
         <div className='w-96 border rounded bg-white px-7 py-10 shadow-lg'>
           <form onSubmit={handleSignUp}>
             <h4 className='text-2xl mb-7 text-center font-semibold'>Sign Up</h4>
-
+ 
             <input
               type='text'
               placeholder='Name'
@@ -70,7 +70,7 @@ const SignUp = () => {
 
             <p className='text-sm text-center mt-4'>
               Already have an account?{" "}
-              <Link to='/login' className='font-medium text-primary underline'>
+              <Link to='/dashboard' className='font-medium text-primary underline'>
                 Login
               </Link>
             </p>

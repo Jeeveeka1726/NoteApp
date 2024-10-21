@@ -2,7 +2,16 @@ import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import NoteCard from '../../Cards/NoteCard'
 import {MdAdd} from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
+
+
+
+
+  const [userInfo, setUserInfo] = useState(null);
+  const navigate = useNavigate();
+
   return (
   <>
    <Navbar/>
