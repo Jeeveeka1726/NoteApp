@@ -1,0 +1,20 @@
+meta {
+  name: Local host
+  type: http
+  seq: 1
+}
+
+post {
+  url: http:localhost:8000/create-account
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "fullName":"Test User",
+    "email":"testuser@gmail.com",
+    "password":"testuser@123"
+    
+  }
+}
