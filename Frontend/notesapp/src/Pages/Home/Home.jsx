@@ -1,12 +1,21 @@
-import React, { useEffect, useState } from 'react'
+
+import React, { useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import NoteCard from '../../Cards/NoteCard'
 import {MdAdd} from "react-icons/md";
+import AddEditNotes from './AddEditNotes';
+import Model from "react-model";
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../utils/axiosInstance';
 
 const Home = () => {
 
+  const[openAddEditModel,setOpenAddEditModel] = useState({
+    isshown : false,
+    type: null,
+    date: null,
+  });
+  
   const [userInfo, setUserInfo] = useState(null);
   const navigate = useNavigate();
 
@@ -47,9 +56,39 @@ const Home = () => {
    </div>
     </div>
 
-    <button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10" onClick={()=> {}}>
+    <button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10"
+    onClick={()=> {
+      setOpenAddEditModel({isshown:true,type:"add",data:null});
+
+    }}>
       <MdAdd className="text-[32px] text-white"/>
     </button>
+
+    <model
+    isopen={openAddEditModel.isshown}
+    onRequestClose={() => {}}
+    style={{
+      overlay: {
+        backgroundColor : "rgba(0,0,0,0.2)",
+      },
+      
+    }}
+    contentLabel=""
+    className="w-[40] max-h-3/4 bg-whit rounded-md mx-auto mt-14 p-5 overflow-scroll"
+    
+    
+    >
+
+
+    </model>
+
+    <AddEditNotes 
+    type={openAddEditModel.type}
+    noteData={openAddEditModel.data}
+    onclose={()=>{
+      setOpenAddEditModel({isshown:false,type:"add",data:null});
+    }}
+    />
   </>  
   
   );
