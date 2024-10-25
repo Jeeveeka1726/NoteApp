@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 const noteSchema = new Schema({
     title:{type:String,required:true},
     content:{type:String,required:true},
-    tags:{type:[string],default:[]},
+    tags:{type:[String],default:[]},
     isPinned : {type:Boolean,default:false},
     userId:{type:String,required:true},
-    CreatedOn:{type:Date,dafault:new Date().getTime()},
+    createdOn:{type:Date,default:new Date().getTime()},
 
 });
 
