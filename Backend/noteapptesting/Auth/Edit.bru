@@ -1,0 +1,23 @@
+meta {
+  name: Edit
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8000/add-note
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3MThiMDdkZWNlZjQwMGRkMjBkMDBiYiIsImZ1bGxOYW1lIjoiVGVzdCBVc2VyIiwiZW1haWwiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJwYXNzd29yZCI6InRlc3R1c2VyQDEyMyIsImNyZWF0ZWRPbiI6IjIwMjQtMTAtMjNUMDg6MTE6MDkuMDgwWiIsIl9fdiI6MH0sImlhdCI6MTcyOTg0ODU3MCwiZXhwIjoxNzMyMDA4NTcwfQ.dYkhhqSfzcPDnz8qW8tLJyrQemWz_-VVMcUH_y2jUKc
+}
+
+body:json {
+  {
+    "title":"test note 222",
+    "content":"test note content 222",
+    "tags":["test 222"]
+  }
+}
