@@ -1,10 +1,9 @@
-
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import NoteCard from '../../Cards/NoteCard'
 import {MdAdd} from "react-icons/md";
 import AddEditNotes from './AddEditNotes';
-import Model from "react-model";
+import Model from "react-modal";
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../utils/axiosInstance';
 
@@ -74,12 +73,7 @@ const Home = () => {
       
     }}
     contentLabel=""
-    className="w-[40] max-h-3/4 bg-whit rounded-md mx-auto mt-14 p-5 overflow-scroll"
-    
-    
-    >
-
-
+    className="w-[40] max-h-3/4 bg-whit rounded-md mx-auto mt-14 p-5 overflow-scroll">
     </model>
 
     <AddEditNotes 
