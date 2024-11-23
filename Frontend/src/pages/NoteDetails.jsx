@@ -12,7 +12,7 @@ export default function NoteDetails() {
     });
     useEffect(() => {
         axios
-            .get(`https://mern-notes-backend-5z2j.onrender.com/noteDetails/${id}`)
+            .get(`https://noteapp-l0ii.onrender.com/notes/noteDetails/${id}`)
             .then((res) => {
                 setNote(res.data.content);
             })

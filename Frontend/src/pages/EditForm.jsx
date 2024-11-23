@@ -11,7 +11,7 @@ export default function EditForm() {
     });
     useEffect(() => {
         axios
-            .get(`https://mern-notes-backend-5z2j.onrender.com/noteDetails/${id}`)
+            .get(`https://noteapp-l0ii.onrender.com/notes/noteDetails/${id}`)
             .then((res) => {
                 setNote(res.data.content);
             })
@@ -26,7 +26,7 @@ export default function EditForm() {
     const submitHandler = (event) => {
         event.preventDefault();
         axios
-            .patch(`https://mern-notes-backend-5z2j.onrender.com/updateNote/${id}`, note)
+            .patch(`https://noteapp-l0ii.onrender.com/notes/updateNote/${id}`, note)
             .then(() => {
                 navigate(`/details/${id}`);
                 Swal.fire('Your note has been updated successfully!')

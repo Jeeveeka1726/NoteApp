@@ -11,29 +11,41 @@ export default function AddForm() {
     });
 
     const changeHandler = (event) => {
-      const { name, value} = event.target;
-      setNote( {...note, [name]: value});
+        const { name, value } = event.target;
+        setNote({ ...note, [name]: value });
     };
 
     const navigate = useNavigate();
+
     const submitHandler = (event) => {
-      event.preventDefault();
-      axios
-        .post(`https://mern-notes-backend-5z2j.onrender.com/addNote`, note)
-        .then(() => {
-          navigate('/');
-          Swal.fire({
-            title: 'Your note has been added successfully!',
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
-          })
-        })
-        .catch((err) => {err.data.msg});
+        event.preventDefault();
+        axios
+            .post(`https://noteapp-l0ii.onrender.com/notes/addNote`, note)
+            .then(() => {
+                navigate('/home');
+                Swal.fire({
+                    title: 'Your note has been added successfully!',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+            })
+            .catch((err) => {
+                // Check if the error has response data and a msg property
+                const errorMessage = err.response?.data?.msg || err.message || "Something went wrong";
+                console.error("Error: ", errorMessage);
+                Swal.fire({
+                    title: "Error",
+                    text: errorMessage,
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                });
+            });
     };
+
     return (
         <div>
             <h1 className="headline">
@@ -53,7 +65,7 @@ export default function AddForm() {
                     rows="5"
                     defaultValue={note.details}
                     onChange={changeHandler}
-                    placeholder="Descride Your Note ..."
+                    placeholder="Describe Your Note ..."
                     required
                 ></textarea>
                 <button type="submit" onClick={submitHandler}>Save Note</button>
