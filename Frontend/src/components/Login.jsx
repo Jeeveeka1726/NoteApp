@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
     const [formData, setFormData] = useState({ email: "", password: "" });
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("https://mern-notes-backend-5z2j.onrender.com/auth/login", formData);
+            const res = await axios.post(
+                "https://noteapp-l0ii.onrender.com/auth/login",
+                formData
+            );
             localStorage.setItem("token", res.data.token);
             alert(`Welcome back, ${res.data.username}!`);
+            navigate("/home"); 
         } catch (error) {
             alert(error.response?.data?.message || "Something went wrong");
         }

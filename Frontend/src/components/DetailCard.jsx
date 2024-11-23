@@ -28,9 +28,9 @@ export default function DetailCard({ note }) {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios
-                    .delete(`https://mern-notes-backend-5z2j.onrender.com/deleteNote/${note._id}`)
+                    .delete(`https://noteapp-l0ii.onrender.com/notes/deleteNote/${note._id}`)
                     .then(() => {
-                        navigate("/");
+                        navigate("/home");
                         Swal.fire(
                             "Deleted!",
                             "Your Note has been deleted.",

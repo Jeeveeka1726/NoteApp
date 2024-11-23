@@ -1,14 +1,24 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
-    const [formData, setFormData] = useState({ username: "", email: "", password: "" });
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        password: "",
+    });
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("https://mern-notes-backend-5z2j.onrender.com/auth/signup", formData);
+            const res = await axios.post(
+                "https://noteapp-l0ii.onrender.com/auth/signup",
+                formData
+            );
             alert(`Welcome, ${res.data.username}!`);
+            navigate("/home"); 
         } catch (error) {
             alert(error.response?.data?.message || "Something went wrong");
         }

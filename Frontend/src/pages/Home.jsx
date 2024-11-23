@@ -18,7 +18,7 @@ export default function Home() {
     useEffect(() => {
         const fetchNotes = () => {
             axios
-                .get("https://mern-notes-backend-5z2j.onrender.com/allNotes")
+                .get("https://noteapp-l0ii.onrender.com/notes/allNotes")
                 .then((res) => {
                     if (res.data.content) {
                         setNotes(res.data.content);
